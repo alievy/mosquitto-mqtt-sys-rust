@@ -1,0 +1,10 @@
+[package]
+name = "mosquitto-mqtt-rust"
+version = "0.1.0"
+authors = ["Aliev Yamanee <aliev.yamanee@teliacompany.com>"]
+build = "build.rs"
+
+[build-dependencies]
+# bindgen = "0.43.0"
+
+[dependencies]
