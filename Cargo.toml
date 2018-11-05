@@ -1,5 +1,5 @@
 [package]
-name = "mosquitto-mqtt-rust"
+name = "mosquitto-mqtt-sys-rust"
 version = "0.1.0"
 authors = ["Aliev Yamanee <aliev.yamanee@teliacompany.com>"]
 build = "build.rs"
