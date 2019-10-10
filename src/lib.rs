@@ -9,8 +9,8 @@ pub const false_: u32 = 0;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const LIBMOSQUITTO_MAJOR: u32 = 1;
 pub const LIBMOSQUITTO_MINOR: u32 = 4;
-pub const LIBMOSQUITTO_REVISION: u32 = 8;
-pub const LIBMOSQUITTO_VERSION_NUMBER: u32 = 1004008;
+pub const LIBMOSQUITTO_REVISION: u32 = 14;
+pub const LIBMOSQUITTO_VERSION_NUMBER: u32 = 1004014;
 pub const MOSQ_LOG_NONE: u32 = 0;
 pub const MOSQ_LOG_INFO: u32 = 1;
 pub const MOSQ_LOG_NOTICE: u32 = 2;
@@ -59,12 +59,12 @@ pub struct mosquitto_message {
 fn bindgen_test_layout_mosquitto_message() {
     assert_eq!(
         ::std::mem::size_of::<mosquitto_message>(),
-        40usize,
+        24usize,
         concat!("Size of: ", stringify!(mosquitto_message))
     );
     assert_eq!(
         ::std::mem::align_of::<mosquitto_message>(),
-        8usize,
+        4usize,
         concat!("Alignment of ", stringify!(mosquitto_message))
     );
     assert_eq!(
@@ -79,7 +79,7 @@ fn bindgen_test_layout_mosquitto_message() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<mosquitto_message>())).topic as *const _ as usize },
-        8usize,
+        4usize,
         concat!(
             "Offset of field: ",
             stringify!(mosquitto_message),
@@ -89,7 +89,7 @@ fn bindgen_test_layout_mosquitto_message() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<mosquitto_message>())).payload as *const _ as usize },
-        16usize,
+        8usize,
         concat!(
             "Offset of field: ",
             stringify!(mosquitto_message),
@@ -99,7 +99,7 @@ fn bindgen_test_layout_mosquitto_message() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<mosquitto_message>())).payloadlen as *const _ as usize },
-        24usize,
+        12usize,
         concat!(
             "Offset of field: ",
             stringify!(mosquitto_message),
@@ -109,7 +109,7 @@ fn bindgen_test_layout_mosquitto_message() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<mosquitto_message>())).qos as *const _ as usize },
-        28usize,
+        16usize,
         concat!(
             "Offset of field: ",
             stringify!(mosquitto_message),
@@ -119,7 +119,7 @@ fn bindgen_test_layout_mosquitto_message() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<mosquitto_message>())).retain as *const _ as usize },
-        32usize,
+        20usize,
         concat!(
             "Offset of field: ",
             stringify!(mosquitto_message),
@@ -134,23 +134,23 @@ pub struct mosquitto {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Important note
-    ///
-    /// The following functions that deal with network operations will return
-    /// MOSQ_ERR_SUCCESS on success, but this does not mean that the operation has
-    /// taken place. An attempt will be made to write the network data, but if the
-    /// socket is not available for writing at that time then the packet will not be
-    /// sent. To ensure the packet is sent, call mosquitto_loop() (which must also
-    /// be called to process incoming network data).
-    /// This is especially important when disconnecting a client that has a will. If
-    /// the broker does not receive the DISCONNECT command, it will assume that the
-    /// client has disconnected unexpectedly and send the will.
-    ///
-    /// mosquitto_connect()
-    /// mosquitto_disconnect()
-    /// mosquitto_subscribe()
-    /// mosquitto_unsubscribe()
-    /// mosquitto_publish()
+    #[doc = " Important note"]
+    #[doc = ""]
+    #[doc = " The following functions that deal with network operations will return"]
+    #[doc = " MOSQ_ERR_SUCCESS on success, but this does not mean that the operation has"]
+    #[doc = " taken place. An attempt will be made to write the network data, but if the"]
+    #[doc = " socket is not available for writing at that time then the packet will not be"]
+    #[doc = " sent. To ensure the packet is sent, call mosquitto_loop() (which must also"]
+    #[doc = " be called to process incoming network data)."]
+    #[doc = " This is especially important when disconnecting a client that has a will. If"]
+    #[doc = " the broker does not receive the DISCONNECT command, it will assume that the"]
+    #[doc = " client has disconnected unexpectedly and send the will."]
+    #[doc = ""]
+    #[doc = " mosquitto_connect()"]
+    #[doc = " mosquitto_disconnect()"]
+    #[doc = " mosquitto_subscribe()"]
+    #[doc = " mosquitto_unsubscribe()"]
+    #[doc = " mosquitto_publish()"]
     pub fn mosquitto_lib_version(
         major: *mut ::std::os::raw::c_int,
         minor: *mut ::std::os::raw::c_int,
