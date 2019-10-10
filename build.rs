@@ -7,7 +7,6 @@ fn main() {
     println!("cargo:rustc-link-lib=crypto");
     println!("cargo:rustc-link-lib=ssl");
     println!("cargo:rustc-link-lib=mosquitto");
-    
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
